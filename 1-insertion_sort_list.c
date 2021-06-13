@@ -77,9 +77,11 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t  *temp = NULL, *counter = NULL;
 
+	if (!list)
+		return;
+
 	temp = (*list)->next;
 	counter = (*list)->next;
-
 
 	while (counter != NULL)
 	{
