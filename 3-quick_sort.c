@@ -35,6 +35,7 @@ int partition(int *array, int low, int high, size_t size)
 		}
 	}
 	swap(&array[i + 1], &array[high]);
+	print_array(array, size);
 	return (i + 1);
 }
 
@@ -57,8 +58,6 @@ void quick_sort_aux(int *array, int low, int high, size_t size)
 	if (low < high)
 	{
 		idx_pivot = partition(array, low, high, size);
-
-		print_array(array, size);
 		quick_sort_aux(array, low, idx_pivot - 1, size);
 		quick_sort_aux(array, idx_pivot + 1, high, size);
 	}
