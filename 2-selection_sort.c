@@ -24,10 +24,13 @@ void selection_sort(int *array, size_t size)
 			{
 				min = array[x];
 				pos = x;
-				array[pos] = array[i];
-				array[i] = min;
 			}
 		}
-		print_array(array, size);
+		if (array[i] != min)
+		{
+			array[pos] = array[i];
+			array[i] = min;
+			print_array(array, size);
+		}
 	}
 }
