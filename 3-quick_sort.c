@@ -26,9 +26,9 @@ int partition(int *array, int low, int high, size_t size)
 	int pivot = array[high], i = low - 1, j;
 	(void)size;
 
-	for (j = low; j <= high - 1; j++)
+	for (j = low; j < high; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
 			i++;
 			swap(&array[i], &array[j]);
@@ -49,12 +49,17 @@ int partition(int *array, int low, int high, size_t size)
 
 void quick_sort_aux(int *array, int low, int high, size_t size)
 {
+	int idx_pivot;
+	if (low >= high)
+		return;
+
 	if (low < high)
 	{
-		int pi = partition(array, low, high, size);
+		idx_pivot = partition(array, low, high, size);
 
-		quick_sort_aux(array, low, pi - 1, size);
-		quick_sort_aux(array, pi + 1, high, size);
+		print_array(array, size);
+		quick_sort_aux(array, low, idx_pivot - 1, size);
+		quick_sort_aux(array, idx_pivot + 1, high, size);
 	}
 }
 
