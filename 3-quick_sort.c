@@ -50,6 +50,7 @@ int partition(int *array, int low, int high, size_t size)
 void quick_sort_aux(int *array, int low, int high, size_t size)
 {
 	int idx_pivot;
+
 	if (low >= high)
 		return;
 
