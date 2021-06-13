@@ -12,6 +12,15 @@ void quick_sort(int *array, size_t size)
 	quick_sort_aux(array, 0, size - 1, size);
 }
 
+/**
+ * partition - splits the array to be ordered
+ * @array: array of integers
+ * @size: array size
+ * @low: lowest index of the array
+ * @high: lenght of the array
+ * Return: the position of the last swaped element of the array
+ */
+
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high], i = low - 1, j;
@@ -26,15 +35,24 @@ int partition(int *array, int low, int high, size_t size)
 		}
 	}
 	swap(&array[i + 1], &array[high]);
-	print_array(array, size);
-	return(i + 1);
+	return (i + 1);
 }
+
+/**
+ * quick_sort_aux - recursive function which sorts the array usign
+ * the quick sort algorithm
+ * @array: array of integers
+ * @size: array size
+ * @low: lowest index of the array
+ * @high: lenght of the array
+ */
 
 void quick_sort_aux(int *array, int low, int high, size_t size)
 {
 	if (low < high)
 	{
 		int pi = partition(array, low, high, size);
+
 		quick_sort_aux(array, low, pi - 1, size);
 		quick_sort_aux(array, pi + 1, high, size);
 	}
