@@ -12,6 +12,9 @@ void selection_sort(int *array, size_t size)
 	size_t i, x;
 	int pos, min;
 
+	if (!array)
+		return;
+
 	for (i = 0; i < size - 1; i++)
 	{
 		min = array[i];
@@ -21,12 +24,9 @@ void selection_sort(int *array, size_t size)
 			{
 				min = array[x];
 				pos = x;
+				array[pos] = array[i];
+				array[i] = min;
 			}
-		}
-		if (array[i] != min)
-		{
-			array[pos] = array[i];
-			array[i] = min;
 		}
 		print_array(array, size);
 	}
