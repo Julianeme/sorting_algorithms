@@ -64,6 +64,9 @@ size_t max(int *array, size_t size)
 	int max_number;
 	size_t i;
 
+	if (!array)
+		return;
+
 	max_number = array[0];
 
 	for (i = 1; i < size; i++)
