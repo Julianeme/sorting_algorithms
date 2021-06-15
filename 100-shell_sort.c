@@ -9,30 +9,28 @@
 
 void shell_sort(int *array, size_t size)
 {
-	int inner, outer;
-	int valueToInsert;
-	int interval = 1;
-	int elements = size;
+	int aux;
+	size_t interval = 1, inner, sup;
 	int i = 0;
 
-	while (interval <= elements / 3)
+	while (interval <= size / 3)
 	{
 		interval = (interval * 3) + 1;
 	}
 	while (interval > 0)
 	{
-		for (outer = interval; outer < elements; outer++)
+		for (sup = interval; sup < size; sup++)
 		{
-			valueToInsert = array[outer];
-			inner = outer;
+			aux = array[sup];
+			inner = sup;
 
-			while ((inner > interval - 1) && (array[inner - interval] >= valueToInsert))
+			while ((inner > interval - 1) && (array[inner - interval] >= aux))
 			{
 				array[inner] = array[inner - interval];
 				inner -= interval;
 			}
 
-			array[inner] = valueToInsert;
+			array[inner] = aux;
 		}
 
 		interval = (interval - 1) / 3;
