@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "sort.h"
 
 /**
@@ -10,7 +9,7 @@
 
 void counting_sort(int *array, size_t size)
 {
-	int *count_array, *out_array, cont = 0, sum = 0;
+	int *count_array = NULL, *out_array = NULL, cont = 0, sum = 0;
 	size_t i, x, max_number, idx_out;
 
 	if (!array)
@@ -63,9 +62,6 @@ size_t max(int *array, size_t size)
 {
 	int max_number;
 	size_t i;
-
-	if (!array)
-		return (1);
 
 	max_number = array[0];
 

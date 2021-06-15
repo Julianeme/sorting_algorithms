@@ -38,7 +38,7 @@ int partition(int *array, int low, int high, size_t size)
 		}
 	}
 	swap(&array[i + 1], &array[high]);
-	if ((unsigned long int)i + 1 != size - 1)
+	if (i + 1 != j)
 		print_array(array, size);
 	return (i + 1);
 }
